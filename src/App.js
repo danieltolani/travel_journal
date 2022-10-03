@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
+import Header from './components/header.js'
+import MainComponent from './components/mainContent.js'
+import data from './data.js'
 import './App.css';
 
 function App() {
+
+  let bodyContent = data.map(item => {
+    return <MainComponent 
+    key= {item.title}
+    {...item}  
+    />
+  })
+
+  console.log(bodyContent)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header className="App-header" />
+      {bodyContent}
     </div>
   );
 }
